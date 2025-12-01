@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>omimix</title>
+    <link rel="icon" type="image/png" href="OmimixLogo.png">
+    <link rel="apple-touch-icon" href="OmimixLogo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0052CC 0%, #1B7FEB 25%, #0052CC 50%, #1B7FEB 75%, #0052CC 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Diagonal stripe background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 80px,
+                    rgba(0, 150, 255, 0.15) 80px,
+                    rgba(0, 150, 255, 0.15) 160px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .logo {
+            width: 500px;
+            height: auto;
+            margin-bottom: 40px;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 12px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.8s ease-out;
+            white-space: nowrap;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .subtitle-text {
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* Loading bar styles */
+        .loading-bar-container {
+            width: 100%;
+            max-width: 300px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 3px;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            width: 40%;
+            animation: loadingAnimation 2s ease-in-out infinite;
+        }
+
+        @keyframes loadingAnimation {
+            0% {
+                left: -40%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        .loading-bar {
+            position: absolute;
+            left: 0;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 8px;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .logo {
+                width: 70px;
+                margin-bottom: 30px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 5px;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 0.5px;
+            }
+
+            .logo {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg class="logo" viewBox="0 0 611.56 344" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <style>
+                    .st0 { fill: #fff; }
+                </style>
+            </defs>
+            <g>
+                <path class="st0" d="M321.04,105.31c-5.67-7.19-18.41-8.34-25.97-3.68-14.07,8.68-5.57,25.06-17.83,33.22-17.47,11.63-38.49-9.7-26.04-27.18,7.98-11.21,19.4-4.94,28.41-12.44,8.93-7.44,4.82-16.45,9.22-24.81,8.05-15.29,31.66-12.1,35.62,4.85,1.59,6.81-.06,12.04,5.71,18.11,9.92,10.42,25.57,1.03,32.45,18.6,8.53,21.8-22.13,36.29-33.62,16.61-4.71-8.07-1.17-14.68-7.95-23.29"/>
+                <path class="st0" d="M327.28,152.75c3.46,29.77-42.44,33.33-43.42,3.39-.89-27.13,40.31-30.16,43.42-3.39"/>
+            </g>
+            <g>
+                <path class="st0" d="M151.47,288.26c-5.49,0-10.54-.9-15.15-2.71-4.62-1.81-8.63-4.33-12.04-7.58-3.41-3.24-6.06-7.06-7.93-11.44-1.87-4.38-2.81-9.18-2.81-14.4s.94-10.02,2.81-14.4c1.87-4.38,4.52-8.19,7.93-11.44,3.41-3.24,7.43-5.77,12.04-7.58,4.62-1.81,9.63-2.71,15.05-2.71s10.52.9,15.1,2.71c4.58,1.81,8.58,4.33,11.99,7.58,3.41,3.25,6.05,7.06,7.93,11.44,1.87,4.38,2.81,9.18,2.81,14.4s-.94,10.03-2.81,14.45c-1.87,4.42-4.52,8.23-7.93,11.44-3.41,3.21-7.41,5.72-11.99,7.53-4.58,1.81-9.58,2.71-15,2.71M151.37,276.82c3.54,0,6.82-.6,9.83-1.81,3.01-1.2,5.62-2.93,7.83-5.17,2.21-2.24,3.93-4.85,5.17-7.83,1.24-2.98,1.86-6.27,1.86-9.88s-.62-6.91-1.86-9.89c-1.24-2.98-2.96-5.59-5.17-7.83-2.21-2.24-4.82-3.96-7.83-5.17-3.01-1.2-6.29-1.81-9.83-1.81s-6.81.6-9.78,1.81c-2.98,1.2-5.59,2.93-7.83,5.17-2.24,2.24-3.98,4.85-5.22,7.83-1.24,2.98-1.86,6.27-1.86,9.89s.62,6.82,1.86,9.83c1.24,3.01,2.96,5.64,5.17,7.88,2.21,2.24,4.82,3.96,7.83,5.17,3.01,1.2,6.29,1.81,9.83,1.81"/>
+                <polygon class="st0" points="199.04 287.25 199.04 217.01 209.78 217.01 240.49 268.28 234.87 268.28 265.07 217.01 275.81 217.01 275.91 287.25 263.57 287.25 263.47 236.37 266.08 236.37 240.39 279.22 234.57 279.22 208.47 236.37 211.48 236.37 211.48 287.25 199.04 287.25"/>
+                <rect class="st0" x="290.86" y="217.01" width="13.05" height="70.25"/>
+                <polygon class="st0" points="318.86 287.25 318.86 217.01 329.6 217.01 360.31 268.28 354.69 268.28 384.89 217.01 395.63 217.01 395.73 287.25 383.39 287.25 383.29 236.37 385.9 236.37 360.21 279.22 354.39 279.22 328.29 236.37 331.3 236.37 331.3 287.25 318.86 287.25"/>
+                <rect class="st0" x="410.68" y="217.01" width="13.05" height="70.25"/>
+                <polygon class="st0" points="430.15 287.25 459.75 246.51 459.75 256.34 431.56 217.01 446.31 217.01 467.28 246.11 461.26 246.21 482.03 217.01 496.18 217.01 468.18 255.64 468.18 246.21 497.99 287.25 482.94 287.25 460.86 256.34 466.78 256.34 445 287.25 430.15 287.25"/>
+            </g>
+        </svg>
+
+        <h1>COMING SOON</h1>
+        
+        <p class="subtitle">
+            <span class="subtitle-text">We're Crafting Something</span>
+            <span class="subtitle-text">Extraordinary For You!</span>
+        </p>
+
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        All Right reserved Omimix Solution 2025
+    </footer>
+
+    <script>
+        // Optional: Add any interactive features here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('OMIMIX Coming Soon Page Loaded');
+        });
+    </script>
+</body>
+</html>
